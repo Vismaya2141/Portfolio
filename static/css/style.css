@@ -454,19 +454,23 @@ section p strong {
 }
 
 html { scroll-behavior: smooth; }
-/* Mobile Hamburger Menu */
+/* Hamburger Menu - Visible ONLY on Mobile, Hidden on Desktop */
 .nav-container {
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
-    padding: 20px;
+    padding: 20px 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
+/* Hide the actual checkbox */
 .nav-toggle {
     display: none;
 }
 
+/* Hamburger Icon - Hidden on Desktop */
 .nav-toggle-label {
     display: none;
     cursor: pointer;
@@ -477,29 +481,17 @@ html { scroll-behavior: smooth; }
     z-index: 1001;
 }
 
-.nav-toggle-label span,
-.nav-toggle-label span::before,
-.nav-toggle-label span::after {
+.nav-toggle-label span {
     display: block;
-    background: #93c5fd;
-    height: 3px;
     width: 30px;
+    height: 3px;
+    background: #93c5fd;
+    margin: 6px 0;
     border-radius: 3px;
-    position: relative;
-    transition: background 0.3s, transform 0.3s;
+    transition: all 0.3s ease-in-out;
 }
 
-.nav-toggle-label span::before,
-.nav-toggle-label span::after {
-    content: '';
-    position: absolute;
-    left: 0;
-}
-
-.nav-toggle-label span::before { top: -10px; }
-.nav-toggle-label span::after { bottom: -10px; }
-
-/* Mobile View */
+/* Show Hamburger & Dropdown on Mobile Only */
 @media (max-width: 768px) {
     .nav-toggle-label {
         display: block;
@@ -516,34 +508,43 @@ html { scroll-behavior: smooth; }
         overflow: hidden;
         transition: max-height 0.4s ease;
         backdrop-filter: blur(10px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
     }
 
     .nav-toggle:checked ~ .nav-menu {
-        max-height: 600px;
+        max-height: 700px;
     }
 
     .nav-menu li {
-        padding: 15px 0;
+        padding: 18px 0;
         text-align: center;
         border-bottom: 1px solid rgba(96, 165, 250, 0.2);
     }
 
+    .nav-menu li:last-child {
+        border-bottom: none;
+    }
+
     .nav-menu li a {
         font-size: 1.3rem;
-        padding: 10px;
         display: block;
+        padding: 10px;
+        color: #93c5fd;
+    }
+
+    .nav-menu li a:hover {
+        color: #ffffff;
+        background: rgba(96, 165, 250, 0.2);
     }
 
     /* Hamburger to X Animation */
-    .nav-toggle:checked ~ .nav-toggle-label span {
-        background: transparent;
+    .nav-toggle:checked ~ .nav-toggle-label span:nth-child(1) {
+        transform: rotate(45deg) translate(5px, 5px);
     }
-    .nav-toggle:checked ~ .nav-toggle-label span::before {
-        transform: rotate(45deg);
-        top: 0;
+    .nav-toggle:checked ~ .nav-toggle-label span:nth-child(2) {
+        opacity: 0;
     }
-    .nav-toggle:checked ~ .nav-toggle-label span::after {
-        transform: rotate(-45deg);
-        bottom: 0;
+    .nav-toggle:checked ~ .nav-toggle-label span:nth-child(3) {
+        transform: rotate(-45deg) translate(7px, -6px);
     }
 }
