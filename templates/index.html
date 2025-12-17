@@ -19,7 +19,7 @@
     <nav>
     <div class="nav-container">
         <!-- Hamburger Icon -->
-        <input type="checkbox" id="mobile-menu" class="mobile-menu-checkbox">
+        <!-- <input type="checkbox" id="mobile-menu" class="mobile-menu-checkbox"> -->
         <label for="mobile-menu" class="mobile-menu-label">
             <span></span>
             <span></span>
@@ -72,7 +72,20 @@
     <section id="certifications">
         <h2>Certifications</h2>
         <div class="certifications-list">
-
+            <!-- Excel Expert -->
+            <div class="cert-card" onclick="openCertificate('{{ url_for('static', filename='certificates/excel_expert.pdf') }}')">
+                <div class="cert-inner">
+                    <div class="cert-front">Microsoft Office Specialist<br>Excel Expert</div>
+                    <div class="cert-back">Microsoft Certified<br>Advanced Excel Proficiency</div>
+                </div>
+            </div>
+             <!-- Git & GitHub -->
+            <div class="cert-card" onclick="openCertificate('{{ url_for('static', filename='certificates/Git-5.pdf') }}')">
+                <div class="cert-inner">
+                    <div class="cert-front">Workshop on<br>Git & GitHub</div>
+                    <div class="cert-back">NIELIT Calicut<br>10–14 July 2023</div>
+                </div>
+            </div>
             <!-- MEARN Stack -->
             <div class="cert-card" onclick="openCertificate('{{ url_for('static', filename='certificates/Mearn_stack.pdf') }}')">
                 <div class="cert-inner">
@@ -88,23 +101,6 @@
                     <div class="cert-back">360DigiTMG & ASAP Kerala<br>16 July 2024</div>
                 </div>
             </div>
-
-            <!-- Git & GitHub -->
-            <div class="cert-card" onclick="openCertificate('{{ url_for('static', filename='certificates/Git-5.pdf') }}')">
-                <div class="cert-inner">
-                    <div class="cert-front">Workshop on<br>Git & GitHub</div>
-                    <div class="cert-back">NIELIT Calicut<br>10–14 July 2023</div>
-                </div>
-            </div>
-
-            <!-- Excel Expert -->
-            <div class="cert-card" onclick="openCertificate('{{ url_for('static', filename='certificates/excel_expert.pdf') }}')">
-                <div class="cert-inner">
-                    <div class="cert-front">Microsoft Office Specialist<br>Excel Expert</div>
-                    <div class="cert-back">Microsoft Certified<br>Advanced Excel Proficiency</div>
-                </div>
-            </div>
-
         </div>
     </section>
 
