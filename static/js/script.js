@@ -118,3 +118,12 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initial load
     updateDanceCarousel();
 });
+// Auto-close mobile menu when a link is clicked
+document.querySelectorAll('.nav-menu a').forEach(link => {
+  link.addEventListener('click', () => {
+    const checkbox = document.getElementById('nav-toggle');
+    if (checkbox) {
+      checkbox.checked = false;
+    }
+  });
+});
